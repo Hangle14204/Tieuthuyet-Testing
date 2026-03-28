@@ -1,0 +1,32 @@
+# Node modules
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Cypress videos & screenshots (test fail mới sinh ra)
+cypress/videos/
+cypress/screenshots/
+
+# Cache
+.cache/
+.nyc_output/
+
+# Environment variables
+.env
+.env.*
+
+# Build
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
