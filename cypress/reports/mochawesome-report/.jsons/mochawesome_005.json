@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-10-15T03:49:14.558Z",
+    "end": "2025-10-15T03:57:01.973Z",
+    "duration": 467415,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7815c6af-1edb-4714-8320-b8bb72a6cf2d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\SEO_Testing.cy.js",
+      "file": "cypress\\e2e\\SEO_Testing.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "25c39ccc-f0aa-4ed2-bde5-b46718d58181",
+          "title": "SEO Testing for HomePage",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Check broken links",
+              "fullTitle": "SEO Testing for HomePage Check broken links",
+              "timedOut": null,
+              "duration": 71570,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('a[href]').then($links => {\n  const requests = [];\n  $links.each((index, a) => {\n    const href = a.href;\n    const linkText = a.innerText.trim() || 'No text';\n    if (href && href.startsWith('http')) {\n      const req = cy.request({\n        url: href,\n        failOnStatusCode: false\n      }).then(reps => {\n        if (reps.status >= 400) {\n          cy.log(`Failed, Link #${index + 1} is broken. \"${href}\": \"${linkText}\" (status: ${reps.status})`);\n        } else {\n          cy.log(`Passed, Link #${index + 1} is valid. \"${href}\": \"${linkText}\" (status: ${reps.status})`);\n        }\n      });\n      requests.push(req);\n    }\n  });\n  return Cypress.Promise.all(requests);\n});",
+              "err": {
+                "message": "CypressError: `cy.screenshot()` timed out waiting `30000ms` to complete.",
+                "estack": "CypressError: `cy.screenshot()` timed out waiting `30000ms` to complete.\n    at https://tieuthuyet.vn/__cypress/runner/cypress_runner.js:136925:73\n    at tryCatcher (https://tieuthuyet.vn/__cypress/runner/cypress_runner.js:1777:23)\n    at https://tieuthuyet.vn/__cypress/runner/cypress_runner.js:4156:41\n    at tryCatcher (https://tieuthuyet.vn/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://tieuthuyet.vn/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://tieuthuyet.vn/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (https://tieuthuyet.vn/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (https://tieuthuyet.vn/__cypress/runner/cypress_runner.js:1667:18)\n    at _drainQueueStep (https://tieuthuyet.vn/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (https://tieuthuyet.vn/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (https://tieuthuyet.vn/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (https://tieuthuyet.vn/__cypress/runner/cypress_runner.js:2256:14)",
+                "diff": null
+              },
+              "uuid": "17cfcb21-a7e1-46df-926f-4cff636719ad",
+              "parentUUID": "25c39ccc-f0aa-4ed2-bde5-b46718d58181",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "17cfcb21-a7e1-46df-926f-4cff636719ad"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 71570,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress\\reports\\mochawesome-report\\.jsons",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "video": false,
+        "screenshotOnRunFailure": true
+      },
+      "version": "6.3.0"
+    }
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-10-15T02:56:31.979Z",
+    "end": "2025-10-15T02:56:39.577Z",
+    "duration": 7598,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f70faaa0-efd4-44d2-953f-8c5044e53cad",
+      "title": "",
+      "fullFile": "cypress\\e2e\\SEO_Testing.cy.js",
+      "file": "cypress\\e2e\\SEO_Testing.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0b6f4c26-328a-46d9-bc05-1fddcc9c39e6",
+          "title": "SEO Testing for HomePage",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Check alt for <img> tags",
+              "fullTitle": "SEO Testing for HomePage Check alt for <img> tags",
+              "timedOut": null,
+              "duration": 4513,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('img').each(($img, index) => {\n  const alt = $img.attr('alt');\n  const src = $img.attr('src');\n  if (!alt) {\n    cy.log(`Failed, <img> #${index + 1} missing alt. Src: ${src}`);\n    Cypress._.defer(() => {\n      throw new Error(`<img> #${index + 1} missing alt attribute`);\n    });\n  } else if (alt.trim() === \"\") {\n    cy.log(`Failed:, <img> #${index + 1} empty alt. Src: ${src}`);\n    Cypress._.defer(() => {\n      throw new Error(`<img> #${index + 1} has empty alt attribute`);\n    });\n  } else {\n    cy.log(`Passed, <img> #${index + 1} alt: \"${alt}\"`);\n  }\n});",
+              "err": {},
+              "uuid": "18ce3985-86c1-4ff2-86d4-d8cd1bbdef0e",
+              "parentUUID": "0b6f4c26-328a-46d9-bc05-1fddcc9c39e6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "18ce3985-86c1-4ff2-86d4-d8cd1bbdef0e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4513,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress\\reports\\mochawesome-report\\.jsons",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "video": false,
+        "screenshotOnRunFailure": true
+      },
+      "version": "6.3.0"
+    }
+  }
+}
