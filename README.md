@@ -62,12 +62,19 @@ The testing scope includes validation of core features and system behavior of th
 ## How to Run
 
 1. Clone repository:
+   
    git clone https://github.com/Hangle14204/Tieuthuyet-Testing.git
+   
    cd tieuthuyet_testing
-2. Install dependencies:
+   
+3. Install dependencies:
+   
    npm install
-3. Open Cypress
+   
+5. Open Cypress
+   
    npx cypress open
+   
    or headless mode: npx cypress run --browser chrome
    
 ## Test Environment
